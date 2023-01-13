@@ -1,9 +1,12 @@
+import TodoContextProvider from "./contexts/TodoContext";
 import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <TodoContextProvider>
+        <Home />
+      </TodoContextProvider>
       <footer>Copyright &copy; 2023</footer>
     </div>
   );

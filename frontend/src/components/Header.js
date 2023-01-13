@@ -1,8 +1,8 @@
-const Header = () => {
+const Header = ({ count }) => {
   return (
     <header className="home-header">
       <h1>MERN TODO App</h1>
-      <div>you have 1 todos to complete</div>
+      <div>you have {count} todos to complete</div>
     </header>
   );
 };

@@ -1,25 +1,43 @@
+import { useEffect, useState } from "react";
 import AddTodo from "../components/AddTodo";
 import Header from "../components/Header";
+import Todos from "../components/Todos";
+import useTodoContext from "../hooks/useTodoContext";
 
 const Home = () => {
+  const [error, setError] = useState(null);
+  const [count, setCount] = useState(0);
+  const { todos, dispatch } = useTodoContext();
+  console.log(todos);
+
+  useEffect(() => {
+    fetch("/api/todos", { method: "GET" })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw Error(res.status + " " + res.statusText);
+        }
+      })
+      .catch((err) => setError(err.message))
+      .then((todos) => {
+        if (todos) {
+          if (todos.error) {
+            throw Error(todos.error);
+          } else {
+            dispatch({ type: "GET_TODOS", payload: todos });
+            setCount(todos.length);
+          }
+        }
+      })
+      .catch((err) => setError(err.message));
+  }, []);
   return (
     <main className="home-wrapper">
-      <Header />
-      <section className="todos">
-        <section className="todo">
-          <div className="title">Example todo title</div>
-          <div className="body">Example todo details</div>
-          <br />
-          <hr />
-          <div className="time">Last updated: dd/mm/yy ab:cd pm</div>
-          <br />
-          <div className="options">
-            <button className="edit">edit</button>
-            <button className="delete">delete</button>
-          </div>
-        </section>
-      </section>
-      <AddTodo />
+      <Header count={count} />
+      <Todos todos={todos} />
+      {error && <div className="error">{error}</div>}
+      <AddTodo dispatch={dispatch} />
     </main>
   );
 };
