@@ -1,0 +1,126 @@
+:root {
+  --bg: rgb(32, 33, 36);
+  --primary_text: rgb(232, 234, 237);
+  --hover: rgb(0, 0, 0, 0.3); /*rgb(55, 56, 58)*/
+  --secondary_text: rgb(154, 160, 166);
+}
+
+body,
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  background-color: rgb(25, 25, 25);
+}
+main.home-wrapper {
+  background-color: var(--bg);
+  width: 95%;
+  margin: 50px auto 50px auto;
+  border-radius: 5px;
+}
+.home-header {
+  color: var(--primary_text);
+  border-radius: 5px;
+  background-color: rgb(41, 42, 45);
+  text-align: center;
+  padding: 20px 0;
+}
+.home-header h1 {
+  margin: 0 0 5px 0;
+}
+.home-header div {
+  color: var(--secondary_text);
+}
+.todos,
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  word-break: break-all;
+}
+.todo {
+  padding: 15px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-color: rgb(0, 0, 0, 0.5);
+}
+.todo:hover {
+  background-color: var(--hover);
+  border: 2px solid rgb(25, 25, 25);
+}
+.todo .title {
+  color: var(--primary_text);
+  padding: 5px 0;
+  font-size: 1.5em;
+}
+.todo .body {
+  color: var(--secondary_text);
+  padding: 5px 0;
+}
+.todo .time {
+  font-size: small;
+  color: var(--secondary_text);
+}
+hr {
+  background-color: var(--secondary_text);
+  border: none;
+  height: 1px;
+}
+.todo .options {
+  display: flex;
+  gap: 10px;
+}
+.todo .options button {
+  background-color: var(--bg);
+  color: rgb(138, 180, 248);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+.options button:hover {
+  background-color: rgb(75, 76, 78, 0.5);
+  border: 2px solid rgb(25, 25, 25);
+}
+form {
+  margin-top: 30px;
+}
+input[type="submit"] {
+  width: fit-content;
+  margin: 0 auto;
+  background-color: rgb(25, 25, 25);
+  color: rgb(138, 180, 248);
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  box-shadow: 0 0 999px inset rgba(0, 0, 0, 0.5);
+}
+input[type="text"] {
+  background-color: rgb(25, 25, 25);
+  border: 3px solid rgb(25, 25, 25);
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--primary_text);
+  font-size: 1em;
+}
+input[type="text"]:focus {
+  outline: none;
+  border: 3px solid rgb(105, 109, 163);
+}
+footer {
+  position: absolute;
+  bottom: -90px;
+  left: 0;
+  right: 0;
+  color: var(--secondary_text);
+  padding: 5px;
+  background-color: var(--bg);
+  text-align: center;
+}
