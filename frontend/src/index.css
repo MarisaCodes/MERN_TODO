@@ -74,15 +74,18 @@ hr {
   display: flex;
   gap: 10px;
 }
-.todo .options button {
+.todo .options button,
+.options .edit {
   background-color: var(--bg);
   color: rgb(138, 180, 248);
   border: 2px solid transparent;
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
+  text-decoration: none;
 }
-.options button:hover {
+.options button:hover,
+.edit:hover {
   background-color: rgb(75, 76, 78, 0.5);
   border: 2px solid rgb(25, 25, 25);
 }
@@ -123,4 +126,16 @@ footer {
   padding: 5px;
   background-color: var(--bg);
   text-align: center;
+}
+.loading {
+  color: var(--primary_text);
+  padding: 10px;
+  text-align: center;
+}
+.back {
+  background-color: rgb(25, 25, 25);
+  color: rgb(138, 180, 248);
+  padding: 10px;
+  border-radius: 5px;
+  max-width: fit-content;
 }

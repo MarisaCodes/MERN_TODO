@@ -12,6 +12,12 @@ const todoReducer = (state, action) => {
       return {
         todos: [action.payload, ...state.todos],
       };
+    case "DELETE_TODO":
+      return {
+        todos: action.payload,
+      };
+    default:
+      return state;
   }
 };
 

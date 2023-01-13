@@ -8,7 +8,6 @@ const Home = () => {
   const [error, setError] = useState(null);
   const [count, setCount] = useState(0);
   const { todos, dispatch } = useTodoContext();
-  console.log(todos);
 
   useEffect(() => {
     fetch("/api/todos", { method: "GET" })
@@ -31,11 +30,11 @@ const Home = () => {
         }
       })
       .catch((err) => setError(err.message));
-  }, []);
+  }, [dispatch]);
   return (
     <main className="home-wrapper">
       <Header count={count} />
-      <Todos todos={todos} />
+      <Todos todos={todos} dispatch={dispatch} setError={setError} />
       {error && <div className="error">{error}</div>}
       <AddTodo dispatch={dispatch} />
     </main>

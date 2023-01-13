@@ -1,4 +1,7 @@
-const Todos = ({ todos }) => {
+import { Link } from "react-router-dom";
+import handleDeleteTodo from "../handlers/handleDeleteTodo";
+
+const Todos = ({ todos, dispatch, setError }) => {
   return (
     <section className="todos">
       {todos &&
@@ -11,8 +14,17 @@ const Todos = ({ todos }) => {
             <div className="time">Last updated: {todo.updatedAt}</div>
             <br />
             <div className="options">
-              <button className="edit">edit</button>
-              <button className="delete">delete</button>
+              <Link className="edit" to={`/edit/${todo._id}`}>
+                edit
+              </Link>
+              <button
+                className="delete"
+                onClick={() =>
+                  handleDeleteTodo(todo._id, todos, dispatch, setError)
+                }
+              >
+                delete
+              </button>
             </div>
           </section>
         ))}

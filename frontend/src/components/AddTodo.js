@@ -17,6 +17,7 @@ const AddTodo = ({ dispatch }) => {
         onChange={(e) => setTitle(e.target.value)}
         value={title}
         placeholder="Todo..."
+        required
       />
       <input
         type="text"
@@ -26,6 +27,7 @@ const AddTodo = ({ dispatch }) => {
         placeholder="Extra details..."
       />
       <input type="submit" value="Add todo" />
+      {error && <div>{error}</div>}
     </form>
   );
 };
